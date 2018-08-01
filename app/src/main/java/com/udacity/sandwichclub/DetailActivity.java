@@ -21,6 +21,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView ingredients;
     TextView origin;
     TextView sandwichDescription;
+    String dataNotAvailable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,8 @@ public class DetailActivity extends AppCompatActivity {
         ingredients = findViewById(R.id.ingredients_tv);
         origin = findViewById(R.id.origin_tv);
         sandwichDescription = findViewById(R.id.description_tv);
+        dataNotAvailable = getResources().getString(R.string.not_available);
+
 
         Intent intent = getIntent();
         if (intent == null) {
@@ -69,8 +72,16 @@ public class DetailActivity extends AppCompatActivity {
 
     private void populateUI(Sandwich sandwich) {
         sandwichDescription.setText(sandwich.getDescription());
-        origin.setText(sandwich.getPlaceOfOrigin());
+        if(!sandwich.getPlaceOfOrigin().isEmpty()){
+            origin.setText(sandwich.getPlaceOfOrigin());
+        }else{
+            origin.setText(dataNotAvailable);
+        }
         ingredients.setText(sandwich.getIngredients().toString());
-        alsoKnownAs.setText(sandwich.getAlsoKnownAs().toString());
+        if(sandwich.getAlsoKnownAs().size()!=0){
+            alsoKnownAs.setText(sandwich.getAlsoKnownAs().toString());
+        }else{
+            alsoKnownAs.setText(dataNotAvailable);
+        }
     }
 }

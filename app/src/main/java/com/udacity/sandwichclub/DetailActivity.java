@@ -17,8 +17,10 @@ public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
-    ImageView sandwichImage;
-    TextView
+    TextView alsoKnownAs;
+    TextView ingredients;
+    TextView origin;
+    TextView sandwichDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,10 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         ImageView ingredientsIv = findViewById(R.id.image_iv);
+        alsoKnownAs = findViewById(R.id.also_known_tv);
+        ingredients = findViewById(R.id.ingredients_tv);
+        origin = findViewById(R.id.origin_tv);
+        sandwichDescription = findViewById(R.id.description_tv);
 
         Intent intent = getIntent();
         if (intent == null) {
@@ -48,7 +54,7 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
 
-        populateUI();
+        populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
                 .into(ingredientsIv);
@@ -61,7 +67,10 @@ public class DetailActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
-    private void populateUI() {
-
+    private void populateUI(Sandwich sandwich) {
+        sandwichDescription.setText(sandwich.getDescription());
+        origin.setText(sandwich.getPlaceOfOrigin());
+        ingredients.setText(sandwich.getIngredients().toString());
+        alsoKnownAs.setText(sandwich.getAlsoKnownAs().toString());
     }
 }

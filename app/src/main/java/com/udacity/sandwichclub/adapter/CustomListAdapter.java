@@ -1,5 +1,6 @@
 package com.udacity.sandwichclub.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +44,7 @@ public class CustomListAdapter extends ArrayAdapter<String> {
 
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = Context.getLayoutInflater();
-        View ListViewSingle = inflater.inflate(R.layout.main_list_item, null, true);
+        @SuppressLint("ViewHolder") View ListViewSingle = inflater.inflate(R.layout.main_list_item, null, true);
 
         TextView ListViewItems = ListViewSingle.findViewById(R.id.tv_item_name);
         ImageView ListViewImage = ListViewSingle.findViewById(R.id.iv_item);

@@ -13,65 +13,114 @@
             android:id="@+id/image_iv"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_marginBottom="20dp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/sandwich_picture_content_description"
             android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/also_known_tv_heading"
+            style="@style/DetailViewHeadingStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/image_iv"
-            android:text="@string/detail_also_known_as_label"
-            android:textStyle="bold" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/detail_also_known_as_label" />
 
         <TextView
             android:id="@+id/also_known_tv"
+            style="@style/DetailViewTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/also_known_tv_heading" />
+            android:layout_below="@id/also_known_tv_heading"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
+        <ImageView
+            android:id="@+id/dash1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/also_known_tv"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/dash" />
 
         <TextView
             android:id="@+id/ingredients_tv_heading"
+            style="@style/DetailViewHeadingStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/also_known_tv"
-            android:text="@string/detail_ingredients_label"
-            android:textStyle="bold" />
+            android:layout_below="@id/dash1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/detail_ingredients_label" />
 
         <TextView
             android:id="@+id/ingredients_tv"
+            style="@style/DetailViewTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ingredients_tv_heading" />
+            android:layout_below="@id/ingredients_tv_heading"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
+        <ImageView
+            android:id="@+id/dash2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ingredients_tv"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/dash" />
 
         <TextView
             android:id="@+id/origin_tv_heading"
+            style="@style/DetailViewHeadingStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ingredients_tv"
-            android:text="@string/detail_place_of_origin_label"
-            android:textStyle="bold" />
+            android:layout_below="@id/dash2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/detail_place_of_origin_label" />
 
         <TextView
             android:id="@+id/origin_tv"
+            style="@style/DetailViewTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/origin_tv_heading" />
+            android:layout_below="@id/origin_tv_heading"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
+        <ImageView
+            android:id="@+id/dash3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/origin_tv"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/dash" />
 
         <TextView
             android:id="@+id/description_tv_heading"
+            style="@style/DetailViewHeadingStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/origin_tv"
-            android:text="@string/detail_description_label"
-            android:textStyle="bold" />
+            android:layout_below="@id/dash3"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/detail_description_label" />
 
         <TextView
             android:id="@+id/description_tv"
+            style="@style/DetailViewTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/description_tv_heading" />
+            android:layout_below="@id/description_tv_heading"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
 
     </RelativeLayout>
 </ScrollView>

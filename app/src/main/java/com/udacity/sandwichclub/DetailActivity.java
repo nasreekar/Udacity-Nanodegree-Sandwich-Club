@@ -1,7 +1,6 @@
 package com.udacity.sandwichclub;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
@@ -11,6 +10,8 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
+
+import java.util.Iterator;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -22,6 +23,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView origin;
     TextView sandwichDescription;
     String dataNotAvailable;
+    StringBuilder sbIngredients, sbAlsoKnownAs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,17 +73,38 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI(Sandwich sandwich) {
-        sandwichDescription.setText(sandwich.getDescription());
-        if(!sandwich.getPlaceOfOrigin().isEmpty()){
-            origin.setText(sandwich.getPlaceOfOrigin());
-        }else{
-            origin.setText(dataNotAvailable);
+
+        sbIngredients = new StringBuilder();
+        sbAlsoKnownAs = new StringBuilder();
+
+        sandwichDescription.setText(String.format("%s\n", sandwich.getDescription()));
+
+        if (!sandwich.getPlaceOfOrigin().isEmpty()) {
+            origin.setText(String.format("%s\n", sandwich.getPlaceOfOrigin()));
+        } else {
+            origin.setText(String.format("%s\n", dataNotAvailable));
         }
-        ingredients.setText(sandwich.getIngredients().toString());
-        if(sandwich.getAlsoKnownAs().size()!=0){
-            alsoKnownAs.setText(sandwich.getAlsoKnownAs().toString());
-        }else{
-            alsoKnownAs.setText(dataNotAvailable);
+
+        Iterator<String> itAlso = sandwich.getAlsoKnownAs().iterator();
+        if (itAlso.hasNext()) {
+            while (true) {
+                sbAlsoKnownAs.append(itAlso.next() + "\n");
+                if (!itAlso.hasNext())
+                    break;
+            }
+        } else{
+            sbAlsoKnownAs.append(dataNotAvailable + "\n");
         }
+        alsoKnownAs.setText(sbAlsoKnownAs);
+
+        Iterator<String> it = sandwich.getIngredients().iterator();
+        if (it.hasNext()) {
+            while (true) {
+                sbIngredients.append(it.next() + "\n");
+                if (!it.hasNext())
+                    break;
+            }
+        }
+        ingredients.setText(sbIngredients);
     }
 }

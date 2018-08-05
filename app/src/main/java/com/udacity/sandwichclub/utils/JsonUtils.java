@@ -37,6 +37,17 @@ public class JsonUtils {
         return sandwich;
     }
 
+    public static String parseSandwichImages(String json){
+        String imagesURL = null;
+        try {
+            JSONObject obj = new JSONObject(json);
+            imagesURL = (obj.getString(KEY_IMAGE));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return imagesURL;
+    }
+
 
     public static ArrayList<String> getJsonArrayAsList(JSONArray array) {
         ArrayList<String> list = new ArrayList<>();

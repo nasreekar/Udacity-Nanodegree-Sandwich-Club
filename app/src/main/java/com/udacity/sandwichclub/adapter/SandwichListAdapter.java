@@ -17,13 +17,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CustomListAdapter extends ArrayAdapter<String> {
+public class SandwichListAdapter extends ArrayAdapter<String> {
 
     private final Activity Context;
     private final String[] ListItemsName;
     private List<String> ImageName;
 
-    public CustomListAdapter(Activity context, String[] content) {
+    public SandwichListAdapter(Activity context, String[] content) {
 
         super(context, R.layout.main_list_item, content);
         // TODO Auto-generated constructor stub
@@ -38,7 +38,7 @@ public class CustomListAdapter extends ArrayAdapter<String> {
     private void getImagesFromJson() {
         List<String> details = Arrays.asList(Context.getResources().getStringArray(R.array.sandwich_details));
         for (int i = 0; i < details.size(); i++) {
-            ImageName.add(JsonUtils.parseSandwichImages(details.get(i)));
+            ImageName.add(JsonUtils.getSandwichImage(details.get(i)));
         }
     }
 

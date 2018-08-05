@@ -7,11 +7,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.udacity.sandwichclub.adapter.CustomListAdapter;
+import com.udacity.sandwichclub.adapter.SandwichListAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
-    CustomListAdapter customListAdapter;
+    SandwichListAdapter customListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Simplification: Using a ListView instead of a RecyclerView
         ListView listView = findViewById(R.id.sandwiches_listview);
-        customListAdapter = new CustomListAdapter(this,sandwiches);
+        customListAdapter = new SandwichListAdapter(this,sandwiches);
         listView.setAdapter(customListAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

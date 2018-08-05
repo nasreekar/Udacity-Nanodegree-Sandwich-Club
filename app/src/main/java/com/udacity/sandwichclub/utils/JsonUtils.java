@@ -37,7 +37,7 @@ public class JsonUtils {
         return sandwich;
     }
 
-    public static String parseSandwichImages(String json){
+    public static String getSandwichImage(String json){
         String imagesURL = null;
         try {
             JSONObject obj = new JSONObject(json);

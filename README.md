@@ -21,3 +21,7 @@ Design the layout for the detail activity so the different elements
 display in a sensible way. Implement the JSON parsing in JsonUtils so it
 produces a Sandwich Object that can be used to populate the UI that you designed.
 
+## App Media
+
+| [![Screen_Shot_2018-08-06_at_2.29.24_AM.png](https://s8.postimg.cc/ndqso08et/Screen_Shot_2018-08-06_at_2.29.24_AM.png)](https://postimg.cc/image/4y6bqlua9/) | [![Screen_Shot_2018-08-06_at_2.30.08_AM.png](https://s8.postimg.cc/og0z6m43p/Screen_Shot_2018-08-06_at_2.30.08_AM.png)](https://postimg.cc/image/4y6bqo75t/) |
+|:---:|:---:|

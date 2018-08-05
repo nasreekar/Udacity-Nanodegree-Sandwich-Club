@@ -12,6 +12,7 @@
         <item name="android:fontFamily">@font/itcavantgardestd_bk</item>
         <item name="android:textSize">15sp</item>
         <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
     
     <style name="DetailViewHeadingStyle">

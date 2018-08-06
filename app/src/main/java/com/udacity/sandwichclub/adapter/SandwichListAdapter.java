@@ -51,6 +51,8 @@ public class SandwichListAdapter extends ArrayAdapter<String> {
 
         Picasso.with(Context)
                 .load(ImageName.get(position))
+                .placeholder(R.drawable.food_placeholder)
+                .error(R.drawable.food_error_placeholder)
                 .into(ListViewImage);
 
         ListViewItems.setText(ListItemsName[position]);

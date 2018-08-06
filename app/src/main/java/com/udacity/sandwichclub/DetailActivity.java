@@ -13,15 +13,29 @@ import com.udacity.sandwichclub.utils.JsonUtils;
 
 import java.util.Iterator;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
+    @BindView(R.id.also_known_tv)
     TextView alsoKnownAs;
+
+    @BindView(R.id.ingredients_tv)
     TextView ingredients;
+
+    @BindView(R.id.origin_tv)
     TextView origin;
+
+    @BindView(R.id.description_tv)
     TextView sandwichDescription;
+
+    @BindView(R.id.image_iv)
+    ImageView ingredientsIv;
+
     String dataNotAvailable;
     StringBuilder sbIngredients, sbAlsoKnownAs;
 
@@ -30,12 +44,8 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        ImageView ingredientsIv = findViewById(R.id.image_iv);
-        alsoKnownAs = findViewById(R.id.also_known_tv);
-        ingredients = findViewById(R.id.ingredients_tv);
-        origin = findViewById(R.id.origin_tv);
-        sandwichDescription = findViewById(R.id.description_tv);
         dataNotAvailable = getResources().getString(R.string.not_available);
+        ButterKnife.bind(this);
 
 
         Intent intent = getIntent();
@@ -62,6 +72,8 @@ public class DetailActivity extends AppCompatActivity {
         populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
+                .placeholder(R.drawable.food_placeholder)
+                .error(R.drawable.food_error_placeholder)
                 .into(ingredientsIv);
 
         setTitle(sandwich.getMainName());

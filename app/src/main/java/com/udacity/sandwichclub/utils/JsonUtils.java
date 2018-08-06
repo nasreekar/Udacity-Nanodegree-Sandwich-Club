@@ -29,7 +29,7 @@ public class JsonUtils {
             sandwich.setAlsoKnownAs(getJsonArrayAsList(nameObj.getJSONArray(KEY_ALSO_KNOW_AS)));
             sandwich.setPlaceOfOrigin(obj.getString(KEY_PLACE_OF_ORIGIN));
             sandwich.setDescription(obj.getString(KEY_DESCRIPTION));
-            sandwich.setImage(obj.getString(KEY_IMAGE));
+            sandwich.setImage(obj.optString(KEY_IMAGE));
             sandwich.setIngredients(getJsonArrayAsList(obj.getJSONArray(KEY_INGREDIENTS)));
         } catch (JSONException e) {
             e.printStackTrace();
